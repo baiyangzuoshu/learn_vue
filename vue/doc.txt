@@ -1,0 +1,13 @@
+node -v
+npm  -v
+sudo npm  install --global vue-cli
+vue  init webpack my-project
+
+入口
+index.html
+
+工作目录
+src
+src/main.js
+src/App.vue:template、components、style
+
