@@ -3,11 +3,33 @@ npm  -v
 sudo npm  install --global vue-cli
 vue  init webpack my-project
 
-入口
+#入口
 index.html
 
-工作目录
+#工作目录
 src
 src/main.js
 src/App.vue:template、components、style
+
+#组件
+1.组成：
+template、style
+script
+    别名 name
+    数据 data()
+    方法 methods
+    完成 computed
+    属性 props
+
+2.导出：export default {name:"test",data(){}}
+3.导入：import Test from "./components/Test"
+
+#语法
+v-text
+v-if
+v-else
+v-for
+v-on
+v-model
+
 
