@@ -1,76 +1,80 @@
 <template>
-  <div class="Users">
-    <h1>Users</h1>
+	<div class="Users">
+		<h1>Users</h1>
 
-    <form v-on:submit="addUsers" >
-      <input type="text" v-model="addUser.name" placeholder="name"/>
-      <input type="text" v-model="addUser.email" placeholder="email"/>
-      <input type="submit" value="Submit"/>
-    </form>
+		<!-- 添加用户信息 -->
+		<form v-on:submit="addUser">
+			<input type="text" v-model="newUser.name" placeholder="Enter name">
+			<input type="text" v-model="newUser.email" placeholder="Enter email">
+			<input type="submit" value="Submit">
+		</form>
 
-    <ul >
-      <li  v-for="user in users">
-        <input type="checkbox" class="toggle" v-model="user.contacetd">
-        <span :class="{contacetd:user.contacetd}">
-          {{user.name}}:{{user.email}}
-          <button v-on:click="deleted(user)">x</button>
-        </span>
-      </li>
-    </ul>
-  </div>
+		<!-- 展示用户信息 -->
+		<ul>
+			<li v-for="user in users">
+				<input type="checkbox" class="toggle" v-model="user.contacted">
+				<span :class="{contacted:user.contacted}">
+					{{user.name}} : {{user.email}}
+					<button v-on:click="deleteUser(user)">x</button>
+				</span>
+			</li>
+		</ul>
+	</div>
 </template>
 
 <script>
-//外部使用此组件
-export default {
-  name:"Users",
-  methods:{
-    addUsers:function(){
-      this.users.push({
-        name:this.addUser.name,
-        email:this.addUser.email,
-        contacetd:false
-      });
-      e.preventDefault();
-    },
-    deleted:function(e){
-      let pos=this.users.indexOf(e);
-      if(pos!=-1){
-        this.users.splice(pos,1);
-      }
-      this.users.push({
-        name:this.addUser.name,
-        email:this.addUser.email,
-        contacetd:false
-      });
-    }
-  },
-  data(){
-    return {
-      addUser:{},
-      users:[
-
-      ]
-    }
-  },
-  created:function(){
-      this.$http.get("https://jsonplaceholder.typicode.com/users")
-        .then((res)=>{
-          let data=res.data;
-          data.forEach(el=>{
-            this.users.push({
-              name:el.name,
-              email:el.email
-            });
-          })
-        })
-  }
-}
+	export default {
+		name: "Users",
+		data(){
+			return {
+				newUser:{},
+				users:[
+					{
+						name:"Hemiah Wu",
+						email:"hemiah@gmail.com",
+						contacted:false
+					},
+					{
+						name:"Henry Wu",
+						email:"henry@gmail.com",
+						contacted:false
+					},
+					{
+						name:"Emily Wu",
+						email:"emily@gmail.com",
+						contacted:false
+					}
+				]
+			}
+		},
+		methods:{
+			addUser:function(e) {
+				// console.log("hello");
+				this.users.push({
+					name:this.newUser.name,
+					email:this.newUser.email,
+					contacted:false
+				});
+				e.preventDefault();
+			},
+			deleteUser:function(user){
+				// console.log("hello");
+				this.users.splice(this.users.indexOf(user),1);
+			}
+		},
+		created:function(){
+			// console.log("Hello World!!!!!!");
+			this.$http.get("https://jsonplaceholder.typicode.com/users")
+				.then(function(response){
+					// console.log(response.data);
+					this.users = response.data;
+				})
+		}
+	}
 </script>
 
-<!--scoped域-->
 <style scoped>
-  .contacetd{
-    text-decoration:line-through;
-  }
+	.contacted{
+		text-decoration: line-through;
+	}
 </style>

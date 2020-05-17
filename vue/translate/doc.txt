@@ -1,0 +1,9 @@
+事件派发
+this.$emit(type:string,data:?)
+
+trnsl.1.1.20200517T023445Z.90ed83cc9a937f27.53e8b94d1c8a19800d616f97e25a475d9de02972
+
+npm install vue-resource --save
+
+v-text
+

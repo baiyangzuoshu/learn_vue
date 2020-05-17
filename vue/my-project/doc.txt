@@ -2,6 +2,8 @@ node -v
 npm  -v
 sudo npm  install --global vue-cli
 vue  init webpack my-project
+npm install vue-router --save
+npm install vue-resource --save
 
 #入口
 index.html
