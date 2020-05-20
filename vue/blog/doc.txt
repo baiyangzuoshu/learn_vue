@@ -1,0 +1,26 @@
+npm install --global vue-lic
+vue init    webpack  blog
+cd  blog    &&       npm      install
+npm run     dev
+
+添加http插件
+npm    install   vue-resource --save
+import VueSource from "vue-resource"
+Vue.use(VueSource)
+
+自定义指令
+Vue.directive:arg("theme",{
+  bind(el,binding,vnode){
+
+  }
+})
+过滤器
+Vue.filter("slice",func);
+
+应避免全局工具的冗长，而善于用局部工具
+
+添加路由
+npm install vue-router --save
+
+布局
+位置，颜色
