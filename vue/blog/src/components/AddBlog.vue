@@ -29,7 +29,7 @@
       <button @click.prevent="post">添加博客</button>
     </form>
 
-    <div class="" v-else>您的博客添加成功</div>
+    <div  v-else>您的博客添加成功</div>
     <hr/>
 
     <div  id="preview">

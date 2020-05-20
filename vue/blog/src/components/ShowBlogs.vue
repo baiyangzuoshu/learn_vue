@@ -1,9 +1,11 @@
 <template>
   <div v-theme="'wide'" id="show-blogs">
-    <h1 class="">博客总览</h1>
+    <h1 >博客总览</h1>
     <input type="text" placeholder="搜索" v-model="search">
     <div class="single-blog" v-for="blog in filteredBlogs">
-      <h2 class="" v-rainbow>{{blog.title|toUppercase}}</h2>
+      <router-link v-bind:to="'/blog/'+blog.id">
+        <h2  v-rainbow>{{blog.title|toUppercase}}</h2>
+      </router-link>
       <article>{{blog.body|snippet}}</article>
     </div>
   </div>

@@ -1,9 +1,9 @@
 <template>
     <div id="ProductListOne">
-      <ul class="">
-        <li class="" v-for="product in saleProducts">
-          <span class="">{{product.name}}</span>
-          <span class="">${{product.price}}</span>
+      <ul >
+        <li  v-for="product in saleProducts">
+          <span >{{product.name}}</span>
+          <span >${{product.price}}</span>
         </li>
       </ul>
       <button @click="reducePrice(10)">商品降价</button>

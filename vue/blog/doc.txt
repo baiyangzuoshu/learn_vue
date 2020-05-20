@@ -24,3 +24,6 @@ npm install vue-router --save
 
 布局
 位置，颜色
+
+绑定参数
+v-bind

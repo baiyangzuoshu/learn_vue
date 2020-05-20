@@ -1,6 +1,9 @@
 <template>
     <nav >
         <ul >
+          <li>
+            <label>快乐简单,忧愁不易</label>
+          </li>
           <li >
             <router-link  to="/">博客纵览</router-link>
             <router-link  to="/AddBlog">写博客</router-link>

@@ -1,9 +1,9 @@
 <template>
   <div class="test">
-    <h1 class="">{{title}}</h1>
-    <p class="">{{user.firstName}}</p>
-    <p class="" v-text="user.lastName"></p>
-    <p class="" v-if="showName">showName</p>
+    <h1 >{{title}}</h1>
+    <p >{{user.firstName}}</p>
+    <p  v-text="user.lastName"></p>
+    <p  v-if="showName">showName</p>
     <p  v-else>showName</p>
     <ul>
       <li v-for="item in items">
@@ -13,7 +13,7 @@
     <button  @click="greet">Say Greeting</button>
     <input type="text" @keyup="presskey" @keyup.enter="keyEnter"/>
     <hr>
-    <label for="" class="">
+    <label for="" >
       <input type="text" v-model="user.firstName"/>
       <br>
       <input type="text" v-model="user.lastName"/>
