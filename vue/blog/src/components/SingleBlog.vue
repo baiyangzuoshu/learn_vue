@@ -18,7 +18,7 @@ export default {
     this.$http.get("https://jsonplaceholder.typicode.com/posts/"+this.id)
       .then((data)=>{
         console.log(data);
-        this.blog=data.body;
+        this.blog=JSON.parse(data.body.datas);
       })
   }
 }

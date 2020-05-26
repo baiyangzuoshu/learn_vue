@@ -30,7 +30,10 @@ Vue.directive("rainbow", {
 // });
 
 Vue.filter("snippet", (val) => {
-  return val.slice(0, 100)+"......";
+  if (val.length > 100)
+    return val.slice(0, 100) + "......";
+  else
+    return val;
 })
 
 const router = new VueRouter({

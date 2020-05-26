@@ -22,8 +22,17 @@ export default {
     }
   },
   created(){
-    this.$http.get("https://jsonplaceholder.typicode.com/posts").then(res=>{
-      this.blogs=res.body.slice(0,10);
+    //localhost:666/getBlogs
+    this.$http.get("/api/getBlogs").then(res=>{
+      console.log(typeof res.body.datas);
+      for(let i in res.body.datas){
+        console.log(res.body.datas[i]);
+        this.blogs.push({
+          id:res.body.datas._id,
+          title:res.body.datas.title||"title",
+          body:res.body.datas.body||"body",
+        });
+      }
     })
   },
   computed:{
