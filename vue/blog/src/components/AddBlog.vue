@@ -65,11 +65,9 @@ export default {
   },
   methods:{
     post:function(){
-        this.$http.post("https://jsonplaceholder.typicode.com/posts",{
+        this.$http.post("/api/addBlogs",{
           title:this.blog.title,
-          content:this.blog.content,
-          author:this.blog.author,
-          userId:1
+          body:this.blog.content,
         })
         .then(res=>{
           this.submited=true;

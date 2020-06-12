@@ -15,10 +15,10 @@ export default {
     }
   },
   created(){
-    this.$http.get("https://jsonplaceholder.typicode.com/posts/"+this.id)
+    this.$http.post("/api/findBlogById",{id:this.id})
       .then((data)=>{
         console.log(data);
-        this.blog=JSON.parse(data.body.datas);
+        this.blog=data.body.data;
       })
   }
 }
